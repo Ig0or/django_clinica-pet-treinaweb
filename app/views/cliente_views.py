@@ -27,6 +27,6 @@ def cadastrar_cliente(request):
                 cliente_novo = cliente.Cliente(nome=nome, email=email, telefone=telefone, cpf=cpf, data_nascimento=data_nascimento, profissao=profissao, endereco=endereco_bd)
                 cliente_service.cadastrar_cliente(cliente_novo)
     else:
-        form_cliente = ClienteForm(request.POST)
-        form_endereco = EnderecoClienteForm(request.POST)
+        form_cliente = ClienteForm()
+        form_endereco = EnderecoClienteForm()
     return render(request, 'clientes/form_cliente.html', {'form_cliente': form_cliente, 'form_endereco': form_endereco})
