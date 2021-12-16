@@ -34,6 +34,8 @@ def editar_pet(request, id):
         return redirect('listar_clientes')
     return render(request, 'pets/form_pet.html', {'form_pet': form_pet})
 
-def listar_pet(request, id):
+def listar_pet_id(request, id):
     pet = pet_service.listar_pet_id(id)
     return render(request, 'pets/lista_pet.html', {'pet': pet})
+
+def 

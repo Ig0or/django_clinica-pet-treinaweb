@@ -8,6 +8,6 @@ urlpatterns = [
     path('editar_cliente/<int:id>', cliente_views.editar_cliente, name='editar_cliente'),
     path('remover_cliente/<int:id>', cliente_views.remover_cliente, name='remover_cliente'),
     path('cadastrar_pet/<int:id>', pet_views.cadastrar_pet, name='cadastrar_pet'),
-    path('lista_pet/<int:id>', pet_views.listar_pet, name='lista_pet_id'),
+    path('lista_pet/<int:id>', pet_views.listar_pet_id, name='listar_pet_id'),
     path('editar_pet/<int:id>', pet_views.editar_pet, name='editar_pet')
 ]
