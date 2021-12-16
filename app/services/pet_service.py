@@ -6,3 +6,13 @@ def cadastrar_pet(pet):
 
 def listar_pet_id(id):
     return Pet.objects.get(id=id)
+
+
+def editar_pet(pet_antigo, pet_novo):
+    pet_antigo.nome = pet_novo.nome
+    pet_antigo.data_nascimento = pet_novo.data_nascimento
+    pet_antigo.categoria = pet_novo.categoria
+    pet_antigo.cor = pet_novo.cor
+    pet_antigo.dono = pet_novo.dono
+    pet_antigo.save(force_update=True)
+    return pet_antigo
