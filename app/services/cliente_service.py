@@ -18,3 +18,6 @@ def editar_cliente(cliente, cliente_novo):
     cliente.cpf = cliente_novo.cpf
     cliente.profissao = cliente_novo.profissao
     cliente.save(force_update=True)
+
+def remover_cliente(cliente):
+    cliente.delete()

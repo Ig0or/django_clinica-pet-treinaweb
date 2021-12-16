@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load meus_filtros %}
+
+{% block title %}
+    Remoção de Clientes
+{% endblock title %}
+
+{% block content %}
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Tem certeza que deseja remover o cliente abaixo?</h3>
+        </div>
+        <div class="box-body">
+            <h5>Nome: {{ cliente.nome }}</h5>
+            <h5>E-mail: {{ cliente.email }}</h5>
+            <h5>Telefone: {{ cliente.telefone }}</h5>
+            <h5>CPF: {{ cliente.cpf }}</h5>
+            <h5>Data_nascimento: {{ cliente.data_nascimento }}</h5>
+            <h5>Profissao: {{ cliente.profissao }}</h5>
+            <hr>
+            <h4>Endereço</h4>
+            <h5>Rua: {{ cliente.endereco.rua }}</h5>
+            <h5>numero: {{ cliente.endereco.numero }}</h5>
+            {% if cliente.endereco.complemento != None %}
+            <h5>complemento: {{ cliente.endereco.complemento }}</h5>
+            {% endif %}
+            <h5>cidade: {{ cliente.endereco.cidade }}</h5>
+            <h5>estado: {{ cliente.endereco.estado }}</h5>
+
+            <form method="post">
+                {% csrf_token %}
+                <button class="btn btn-danger" type="submit">Remover</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
