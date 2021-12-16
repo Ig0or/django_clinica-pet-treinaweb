@@ -17,3 +17,8 @@ def cadastrar_pet(request, id):
     else:
         form_pet = PetForm()
     return render(request, 'pets/form_pet.html', {'form_pet': form_pet})
+
+
+def listar_pet(request, id):
+    pet = pet_service.listar_pet_id(id)
+    return render(request, 'pets/lista_pet.html', {'pet': pet})
