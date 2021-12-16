@@ -13,7 +13,25 @@ class Cliente(models.Model):
     nome = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(null=False, blank=False)
     telefone = models.CharField(max_length=11, blank=False, null=False)
-    endereco = models.ForeignKey(EnderecoCliente, on_delete=CASCADE)
+    endereco = models.ForeignKey(EnderecoCliente, on_delete=models.CASCADE)
     cpf = models.CharField(max_length=14, null=False, blank=False)
     data_nascimento = models.DateField(null=False, blank=False)
     profissao = models.CharField(max_length=25, null=False, blank=False)
+
+class Pet(models.Model):
+    CATEGORIA_CHOICES = (
+        ('Dog', 'Cachorro'), 
+        ('Cat', 'Gato'), 
+        ('Bunny', 'Coelho')
+    )
+    COR_CHOICES = (
+        ('Black', 'Preto'),
+        ('White', 'Branco'),
+        ('Gray', 'Cinz'),
+        ('Brown', 'Marrom'),
+    )
+    nome = models.CharField(max_length=100, null=False, blank=False)
+    data_nascimento = models.DateField(null=False, blank=False)
+    categoria = models.CharField(max_length=10, choices=CATEGORIA_CHOICES, null=False, blank=False)
+    cor =  models.CharField(max_length=10, choices=COR_CHOICES, null=False, blank=False)
+    dono = models.ForeignKey(Cliente, on_delete=models.CASCADE)
