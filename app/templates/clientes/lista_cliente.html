@@ -60,7 +60,6 @@
           </div>
           <!-- /.box -->
         </div>
-        <!-- /.col -->
         <div class="col-md-9">
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
@@ -74,22 +73,26 @@
                   <!-- timeline time label -->
                   <li class="time-label">
                         <span class="bg-red">
-                          10 Feb. 2014
+                          {% now 'SHORT_DATE_FORMAT' %}
                         </span>
                   </li>
                   <!-- /.timeline-label -->
-        
-                  <!-- timeline item -->
-                  <li>
-                    <i class="fa fa-user bg-aqua"></i>
-                    <div class="timeline-item">
-                      <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
 
-                      <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request
-                      </h3>
+                  {% for consulta in consultas %}
+                  <li>
+                    <i class="fa fa-paw bg-blue"></i>
+                    <div class="timeline-item">
+                      <span class="time">
+                        <i class="fa fa-calendar"></i>
+                        {{ consulta.data }}
+                      </span>
+                      <h3 class="timeline-header">{{ consulta.pet.nome}} realizou nova consulta</h3>
+                      <div class="timeline-body">
+                        {{ consulta.motivo_consulta }}
+                      </div>
                     </div>
                   </li>
-                  <!-- END timeline item -->
+                  {% endfor %}
                 
                   <li>
                     <i class="fa fa-clock-o bg-gray"></i>
@@ -103,7 +106,7 @@
           </div>
           <!-- /.nav-tabs-custom -->
         </div>
-        <!-- /.col -->
+       
       </div>
       <!-- /.row -->
     </section>
