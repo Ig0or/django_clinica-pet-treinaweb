@@ -4,7 +4,7 @@ from ..services import pet_service, consulta_service
 from ..entidades import consulta
 
 
-def inserir_consulta(request, id):
+def cadastrar_consulta(request, id):
     if request.method == 'POST':
         form_consulta = consulta_forms.ConsultaPetForm(request.POST)
         pet = pet_service.listar_pet_id(id)
