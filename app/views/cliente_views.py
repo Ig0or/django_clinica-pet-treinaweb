@@ -1,7 +1,7 @@
 from app.forms.cliente_forms import ClienteForm
 from app.forms.endereco_forms import EnderecoClienteForm
 from ..entidades import cliente, endereco
-from ..services import cliente_service, endereco_service
+from ..services import cliente_service, endereco_service, pet_service
 from django.shortcuts import redirect, render
 
 
@@ -12,7 +12,8 @@ def listar_clientes(request):
 
 def listar_clientes_id(request, id):
     cliente = cliente_service.listar_cliente_id(id)
-    return render(request, 'clientes/lista_cliente.html', {"cliente": cliente})
+    pets = pet_service.listar_pets(id)
+    return render(request, 'clientes/lista_cliente.html', {"cliente": cliente, 'pets': pets})
 
 
 def remover_cliente(request, id):
@@ -23,6 +24,7 @@ def remover_cliente(request, id):
         endereco_service.remover_endereco(endereco)
         return redirect('listar_clientes')
     return render(request, 'clientes/confirma_exclusao.html', {'cliente': cliente})
+
 
 def cadastrar_cliente(request):
     if request.method == 'POST':

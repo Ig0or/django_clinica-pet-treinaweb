@@ -16,14 +16,14 @@
 
               <h3 class="profile-username text-center">{{ pet.nome }}</h3>
 
-              <p class="text-muted text-center">{{ pet.categoria }}</p>
+              <p class="text-muted text-center">{{ pet.get_categoria_display }}</p>
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
                   <b>Data de Nascimento</b> <a class="pull-right">{{ pet.data_nascimento }}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Cor:</b> <a class="pull-right">{{ pet.cor }}</a>
+                  <b>Cor:</b> <a class="pull-right">{{ pet.get_cor_display }}</a>
                 </li>
               </ul>
 

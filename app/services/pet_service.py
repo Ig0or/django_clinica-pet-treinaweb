@@ -8,6 +8,10 @@ def listar_pet_id(id):
     return Pet.objects.get(id=id)
 
 
+def listar_pets(id):
+    return Pet.objects.filter(dono=id).all()
+
+
 def editar_pet(pet_antigo, pet_novo):
     pet_antigo.nome = pet_novo.nome
     pet_antigo.data_nascimento = pet_novo.data_nascimento
