@@ -10,5 +10,6 @@ urlpatterns = [
     path('cadastrar_pet/<int:id>', pet_views.cadastrar_pet, name='cadastrar_pet'),
     path('lista_pet/<int:id>', pet_views.listar_pet_id, name='listar_pet_id'),
     path('editar_pet/<int:id>', pet_views.editar_pet, name='editar_pet'),
-    path('cadastrar_consulta/<int:id>', consulta_views.cadastrar_consulta, name='cadastrar_consulta')
+    path('cadastrar_consulta/<int:id>', consulta_views.cadastrar_consulta, name='cadastrar_consulta'),
+    path('lista_consulta/<int:id>', consulta_views.listar_consulta_id, name='lista_consulta_id')
 ]
