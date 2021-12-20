@@ -50,9 +50,9 @@ class ConsultaPet(models.Model):
 
 class Funcionario(models.Model):
     CARGOS_CHOICES = (
-        (1, 'Veterinário'),
-        (2, 'Financeiro'),
-        (3, 'Atendimento'),
+        ('1', 'Veterinário'),
+        ('2', 'Financeiro'),
+        ('3', 'Atendimento'),
     )
 
     nome = models.CharField(max_length=100, null=False, blank=False)
