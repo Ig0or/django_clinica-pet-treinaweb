@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
+from django.db.models.expressions import F
 from localflavor.br.br_states import STATE_CHOICES
 
 class EnderecoCliente(models.Model):
@@ -45,3 +46,15 @@ class ConsultaPet(models.Model):
     medicamento_atual = models.TextField(null=False, blank=True)
     medicamentos_prescritos = models.TextField(null=False, blank=True)
     exames_prescritos = models.TextField(null=False, blank=True)
+
+
+class Funcionario(models.Model):
+    CARGOS_CHOICES = (
+        (1, 'Veterinário'),
+        (2, 'Financeiro'),
+        (3, 'Atendimento'),
+    )
+
+    nome = models.CharField(max_length=100, null=False, blank=False)
+    data_nascimento = models.DateField(null=False, blank=False)
+    cargo = models.CharField(max_length=10, choices=CARGOS_CHOICES, null=False, blank=False)
