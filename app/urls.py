@@ -12,5 +12,6 @@ urlpatterns = [
     path('editar_pet/<int:id>', pet_views.editar_pet, name='editar_pet'),
     path('cadastrar_consulta/<int:id>', consulta_views.cadastrar_consulta, name='cadastrar_consulta'),
     path('lista_consulta/<int:id>', consulta_views.listar_consulta_id, name='lista_consulta_id'),
-    path('cadastrar_funcionario', funcionario_views.cadastrar_funcionario, name='cadastrar_funcionario')
+    path('cadastrar_funcionario', funcionario_views.cadastrar_funcionario, name='cadastrar_funcionario'),
+    path('listar_funcionarios', funcionario_views.listar_funcionarios, name='listar_funcionarios')
 ]

@@ -17,3 +17,7 @@ def cadastrar_funcionario(request):
         form_funcionario = FuncionarioForm()
     return render(request, 'funcionarios/form_funcionario.html', {'form_funcionario': form_funcionario})
 
+
+def listar_funcionarios(request):
+    funcionarios = funcionario_service.listar_funcionarios()
+    return render(request, 'funcionarios/lista_funcionarios.html', {'funcionarios': funcionarios})
