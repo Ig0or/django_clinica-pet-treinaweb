@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 from django.db.models.deletion import CASCADE
 from django.db.models.expressions import F
 from localflavor.br.br_states import STATE_CHOICES
@@ -48,7 +49,7 @@ class ConsultaPet(models.Model):
     exames_prescritos = models.TextField(null=False, blank=True)
 
 
-class Funcionario(models.Model):
+class Funcionario(AbstractUser):
     CARGOS_CHOICES = (
         ('1', 'Veterinário'),
         ('2', 'Financeiro'),

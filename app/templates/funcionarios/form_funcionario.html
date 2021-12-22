@@ -29,6 +29,26 @@
                     <label>Cargo:</label>
                     {{ form_funcionario.cargo | addclass:'form-control'}}
                 </div>
+
+                <hr>
+
+                <div class="form-group">
+                    {{ form_funcionario.username.errors}}
+                    <label>Usuario:</label>
+                    {{ form_funcionario.username | addclass:'form-control'}}
+                </div>
+
+                <div class="form-group">
+                    {{ form_funcionario.password1.errors}}
+                    <label>Senha:</label>
+                    {{ form_funcionario.password1 | addclass:'form-control'}}
+                </div>
+
+                <div class="form-group">
+                    {{ form_funcionario.password2.errors}}
+                    <label>Confirmação de Senha:</label>
+                    {{ form_funcionario.password2 | addclass:'form-control'}}
+                </div>
         
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" name="Cadastrar">
