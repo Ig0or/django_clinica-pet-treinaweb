@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from ..entidades.pet import Pet
 from ..forms.pet_forms import PetForm
 from ..services import cliente_service, pet_service, consulta_service
 
+
+@login_required()
 def cadastrar_pet(request, id):
     if request.method == 'POST':
         form_pet = PetForm(request.POST)
@@ -19,6 +22,7 @@ def cadastrar_pet(request, id):
     return render(request, 'pets/form_pet.html', {'form_pet': form_pet})
 
 
+@login_required()
 def editar_pet(request, id):
     pet_antigo = pet_service.listar_pet_id(id)
     pet_antigo.data_nascimento = pet_antigo.data_nascimento.strftime('%Y-%m-%d')
@@ -34,6 +38,8 @@ def editar_pet(request, id):
         return redirect('listar_clientes')
     return render(request, 'pets/form_pet.html', {'form_pet': form_pet})
 
+
+@login_required()
 def listar_pet_id(request, id):
     pet = pet_service.listar_pet_id(id)
     consultas = consulta_service.listar_consultas(id)
