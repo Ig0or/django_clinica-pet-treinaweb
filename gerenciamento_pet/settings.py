@@ -71,6 +71,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gerenciamento_pet.wsgi.application'
 
+# EMAIL
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'email remetente'
+EMAIL_HOST_PASSWORD = 'senha remetente'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
